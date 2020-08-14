@@ -18,3 +18,89 @@ class coordinate:
         return coordinate(self.x + other.x, self.y + other.y)
 
 coord1 = coordinate(5,7)
+
+coord2 = coordinate(3,9)
+# 두 객체를 더하여 저장
+coord3 = coord1 + coord2 # -> coord1.__add__(coord2)
+
+print(coord3.x) # 8
+print(coord3.y) # 16
+
+# __add__ 외에도 다음과 같은 연산자들이 매직 메서드로 사용된다.
+#  메서드      연산자
+# __sub__()     -
+# __mul__()     *
+# __lt__()      <
+# __le__()      <=
+# __eq__()      ==
+# __ne__()      !=
+# __gt__()      >
+# __ge__()      >=
+
+#==============================================
+
+# 예제2.
+class Student:
+    def __init__(self, name, korean, math, english, science):
+        self.name = name
+        self.korean = korean
+        self.math = math
+        self.english = english
+        self.science = science
+    #메서드
+    def get_sum(self):
+        return self.korean + self.math + self.english + self.science
+
+    def get_average(self):
+        return self.get_sum() / 4
+
+    # 매개변수로 전달받는 객체를 문자열 정보로 만들어서 반환해주는 메서드
+    def __str__(self, student):
+        return "{}\t{}\t{}".format(self.name,
+                                   self.get_sum(student),
+                                   self.get_average(student))
+    def __eq__(self, value): # 매개변수로 전달받는 객체들의 점수의 총합이 같은가
+        return self.get_sum() == value.get_sum()
+    
+    def __ne__(self,value): # 매개변수로 전달받는 객체들의 점수의 총합이 다른
+        return self.get_sum() != value.get_sum()
+
+    def __gt__(self,value):
+        return self.get_sum() > value.get_sum()
+
+    def __ge__(self,value):
+        return self.get_sum() >= value.get_sum()
+
+    def __lt__(self,value):
+        return self.get_sum() < value.get_sum()
+
+    def __le__(self,value):
+        return self.get_sum() <= value.get_sum()
+
+#==============================================
+
+# 학생 인스턴스들을 생성하여 리스트에 저장
+student = [
+    Student("윤인성", 87, 98, 88, 95),
+    Student("연하진", 92, 100, 88, 80),
+    Student("박두걸", 75, 84, 85, 92),
+    Student("류성배", 84, 78, 82, 96),
+    Student("백상혁", 80, 100, 44, 76),
+    Student("최진룡", 66, 70, 100, 100)
+]
+
+# 학생 인스턴스 따로 생성
+student_a = Student("윤인성", 87, 98, 88, 95)
+student_b = Student("연하진", 92, 100, 88, 80)
+
+print(student_a == student_b) # -> student_a.__eq__(student.b)
+
+print(student_a != student_b) # -> student_a.__ne__(student.b)
+
+print(student_a > student_b) # -> student_a.__gt__(student.b)
+
+print(student_a >= student_b) # -> student_a.__ge__(student.b)
+
+print(student_a < student_b) # -> student_a.__lt__(student.b)
+
+print(student_a <= student_b) # -> student_a.__le__(student.b)
