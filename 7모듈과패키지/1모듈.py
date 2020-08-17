@@ -56,7 +56,7 @@ print(pi)
 # - 표준모듈이란? 파이썬에서 기본적으로 내장되어있는 모듈
 # - 외부모듈이란? 다른 사람들이 만들어서 공개한 모듈
 # - 표준모듈의 종류
-#    random, sys, os, datetime, time, math, urllib
+#    random, sys, os, datetime, time, math, urllib , turtle
 
 # - 외부모듈의 종류
 #    requests, BeautifulSoup, Numpy, Matplotlib, pandas
