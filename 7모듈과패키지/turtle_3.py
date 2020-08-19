@@ -6,7 +6,7 @@
 import turtle as t
 
 t.shape("turtle")
-t.speed(1)
+t.speed(2)
 # 삼각형 그리기 for문 이용
 for i in range(3):
     t.forward(200)
